@@ -3,8 +3,12 @@
 #define PIN0 6 //LEFT SIDE I may need to adjust this for production hardware when I move to nano or micro
 #define PIN1 7 //RIGHT SIDE lightbar
 #define NUMPIXELS 8 //the number of pixels being used. Make sure to update this if I end up chaining the strips
-#define SWITCH0 3 //LEFT SIDE make sure this is ok, used for direction
-#define SWITCH1 4 //RIGHT SIDEmake sure this is ok, used for direction
+
+//these are for the 3 pos switch that will be used for signal direction.
+#define SWITCH0 3 //LEFT SIDE
+#define SWITCH1 4 //RIGHT SIDE
+#define SWITCH2 5 //BOTH LIGHTS
+
 #define BUTTON0 2 //this is for the mode-switcher, make sure this is ok
 
 // Timing
@@ -23,12 +27,26 @@ void setup() {
     pixels1.setBrightness(200);
 }
 
+//there might be a better way of doing this where clears would only happen if there is a state change. IDK if it matters tho
+
 void loop() {
-   if (SWITCH0=HIGH) { //make sure that if/else is the proper structure for this. I think so
+   if (SWITCH0=HIGH) {
         solidBarLeft();
     } 
     else if (SWITCH1=HIGH) {
         solidBarRight();
+    }
+    else {
+        pixels0.clear();
+        pixels1.clear();
+        for(int i=0; i<NUMPIXELS; i++) {
+         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
+         pixels0.show();
+        }
+        for(int i=0; i<NUMPIXELS; i++) {
+         pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+         pixels1.show();
+        }
     }
 
 }
@@ -36,15 +54,15 @@ void loop() {
 //void solidBarLeft and solidBarRight could theoretically be done with a single section of code and args, but the adafruit lib is throwing compile errors and I didn't wanna mess with it
 
 void solidBarLeft() { 
-    pixels0.clear();
-    for(int i=0; i<NUMPIXELS; i++) {
+    pixels0.clear(); //clears the pixels
+    for(int i=0; i<NUMPIXELS; i++) { //sets the pixels, one at a time, to red
         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
-        pixels0.show();
+        pixels0.show(); //displays the pixels
     }
-    delay(time0);
-    pixels0.clear();
-    pixels0.show();
-    delay(time0);
+    delay(time0);    //waits 0.1 sec
+    pixels0.clear(); //clears the pixels
+    pixels0.show();  //displays that the pixels are cleared
+    delay(time0);    //waits 0.1 sec
 }
 
 void solidBarRight() {
