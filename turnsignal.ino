@@ -32,15 +32,16 @@ void loop() {
 
 }
 
-void solidBar(int side) { //this int is causing the compiler to refuse the code
-    side.clear();
+/*void solidBar(int side) {*/ //this int is causing the compiler to refuse the code, so I'm gonna revert to how I was originally going to do this. It's gonna be a lil more inefficient, but IDK
+void solidBar() {
+    pixels0.clear();
     for(int i=0; i<NUMPIXELS; i++) {
-        side.setPixelColor(i, side.Color(255,0,0));
-        side.show();
+        pixels0.setPixelColor(i, pixels0.Color(255,0,0));
+        pixels0.show();
     }
     delay(time0);
-    side.clear();//is this redundant? Test. 
-    side.show(); //is this redundant? Test. 
+    pixels0.clear();//is this redundant? Test. 
+    pixels0.show(); //is this redundant? Test. 
     delay(time0);
 }
 
