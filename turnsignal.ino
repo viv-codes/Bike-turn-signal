@@ -10,7 +10,7 @@
 // Timing
 #define time0 1000 //1 second is the default wait time
 
-Adafruit_Neopixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
 
 
@@ -24,14 +24,15 @@ void setup() {
 }
 
 void loop() {
-    while(SWITCH0=HIGH) do{
+    solidBar(pixels0);
+   /* while(SWITCH0=HIGH) do{
         solidBar(pixels0);
-    }
+    } */
     
 
 }
 
-void solidBar(int side) {
+void solidBar(int side) { //this int is causing the compiler to refuse the code
     side.clear();
     for(int i=0; i<NUMPIXELS; i++) {
         side.setPixelColor(i, side.Color(255,0,0));
