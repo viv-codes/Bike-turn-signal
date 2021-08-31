@@ -1,9 +1,11 @@
 #include <Adafruit_NeoPixel.h>
 
 // Light Hardware
-#define PIN0 6 //LEFT SIDE I may need to adjust this for production hardware when I move to nano or micro
-#define PIN1 7 //RIGHT SIDE lightbar
-#define NUMPIXELS 8 //the number of pixels being used. Make sure to update this if I end up chaining the strips
+#define PIN0 6      // Left side turn signal lightbar
+#define PIN1 7      // Right side turn signal lightbar
+#define NUMPIXELS 8
+#define LED0 11     // headunit led indicator for left turn 
+#define LED1 12     // headunit led indicator for right turn
 
 // Turn signal direction switch
 #define SWITCH0 3 //LEFT SIDE
@@ -85,11 +87,13 @@ void solidBarLeft() {
     pixels0.clear(); //clears the pixels
     for(int i=0; i<NUMPIXELS; i++) { //sets the pixels, one at a time, to red
         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
-        pixels0.show(); //displays the pixels
+        pixels0.show(); // Displays the pixels
     }
+    digitalWrite(LED0, HIGH); // Activates the indicator LED
     delay(time0);    //waits 0.1 sec
     pixels0.clear(); //clears the pixels
     pixels0.show();  //displays that the pixels are cleared
+    digitalWrite(LED0, LOW);
     delay(time0);    //waits 0.1 sec
 }
 
@@ -100,9 +104,11 @@ void solidBarRight() {
         pixels1.setPixelColor(i, pixels1.Color(255,0,0));
         pixels1.show();
     }
+    digitalWrite(LED1, HIGH);
     delay(time0);
     pixels1.clear();
     pixels1.show();
+    digitalWrite(LED1, HIGH);
     delay(time0);
 }
 
