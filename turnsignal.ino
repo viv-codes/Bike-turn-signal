@@ -51,6 +51,14 @@ void loop() {
         } else {
             prideBar();
         }
+    } else {
+        if (digitalRead(SWITCH0) == HIGH) {
+            solidBarLeft();
+        } else if (digitalRead(SWITCH1) == HIGH) {
+            solidBarRight();
+        } else {
+            transPrideBar();
+        }
     }
 }
 
