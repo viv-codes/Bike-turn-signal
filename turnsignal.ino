@@ -1,3 +1,8 @@
+/* Notes:
+- It would probably be best to keep the turn signals red and blinking solid to prevent confusion. 
+- However, the running light could be colorful or rainbow (let's try both)
+
+*/
 #include <Adafruit_NeoPixel.h>
 
 #define PIN0 6 //LEFT SIDE I may need to adjust this for production hardware when I move to nano or micro
@@ -7,7 +12,6 @@
 //these are for the 3 pos switch that will be used for signal direction.
 #define SWITCH0 3 //LEFT SIDE
 #define SWITCH1 4 //RIGHT SIDE
-#define SWITCH2 5 //BOTH LIGHTS
 
 #define BUTTON0 2 //this is for the mode-switcher, make sure this is ok
 
