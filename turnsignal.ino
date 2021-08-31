@@ -100,3 +100,26 @@ void prideBar() {
         delay(10);
     }
 }
+
+void transPrideBar() { //yea I know this is a lot of code, IDC. 
+    pixels0.clear();
+    pixels1.clear();
+    pixels0.setPixelColor(0, pixels0.Color()); 
+    pixels0.setPixelColor(1, pixels0.Color());
+    pixels0.setPixelColor(2, pixels0.Color());
+    pixels0.setPixelColor(3, pixels0.Color());
+    pixels0.setPixelColor(4, pixels0.Color());
+    pixels0.setPixelColor(5, pixels0.Color());
+    pixels0.setPixelColor(6, pixels0.Color());
+    pixels0.setPixelColor(7, pixels0.Color());
+    pixels1.setPixelColor(0, pixels1.Color());
+    pixels1.setPixelColor(1, pixels1.Color());
+    pixels1.setPixelColor(2, pixels1.Color());
+    pixels1.setPixelColor(3, pixels1.Color());
+    pixels1.setPixelColor(4, pixels1.Color());
+    pixels1.setPixelColor(5, pixels1.Color());
+    pixels1.setPixelColor(6, pixels1.Color());
+    pixels1.setPixelColor(7, pixels1.Color());
+    pixels0.show();
+    pixels1.show();
+}
