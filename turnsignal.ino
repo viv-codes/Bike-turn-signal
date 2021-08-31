@@ -37,18 +37,24 @@ void loop() {
         solidBarRight();
     }
     else {
-        pixels0.clear();
-        pixels1.clear();
-        for(int i=0; i<NUMPIXELS; i++) {
-         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
-         pixels0.show();
-        }
-        for(int i=0; i<NUMPIXELS; i++) {
-         pixels1.setPixelColor(i, pixels1.Color(255,0,0));
-         pixels1.show();
-        }
+        solidBar();
     }
 
+}
+
+
+void solidBar() {
+    pixels0.clear();
+    pixels1.clear();
+    for(int i=0; i<NUMPIXELS; i++) {
+      pixels0.setPixelColor(i, pixels0.Color(255,0,0));
+      pixels0.show();
+    }
+    for(int i=0; i<NUMPIXELS; i++) {
+      pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+      pixels1.show();
+    }
+    delay(time0);
 }
 
 //void solidBarLeft and solidBarRight could theoretically be done with a single section of code and args, but the adafruit lib is throwing compile errors and I didn't wanna mess with it
