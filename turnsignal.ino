@@ -1,8 +1,7 @@
 /* Notes:
 - It would probably be best to keep the turn signals red and blinking solid to prevent confusion. 
 - However, the running light could be colorful or rainbow (let's try both)
-- A 3 pos switch will be used for directionality
-- A single pushbutton will be used to change running light modes, indicated by an individual RGB LED with different colors to correspond with the rear light
+- A 3 pos switch will be used for directionality and a separate one for mode selection
 */
 #include <Adafruit_NeoPixel.h>
 
@@ -14,7 +13,9 @@
 #define SWITCH0 3 //LEFT SIDE
 #define SWITCH1 4 //RIGHT SIDE
 
-#define BUTTON0 2 //this is for the mode-switcher, make sure this is ok
+// defs for the 3 pos switch used for mode selection
+#define SWITCH00 //Normal operation
+#define SWITCH01 //Pride Mode
 
 // Timing
 #define time0 100 //1/10 second is the default blink time
@@ -34,16 +35,23 @@ void setup() {
 //there might be a better way of doing this where clears would only happen if there is a state change. IDK if it matters tho
 
 void loop() {
-   if (SWITCH0=HIGH) {
-        solidBarLeft();
-    } 
-    else if (SWITCH1=HIGH) {
-        solidBarRight();
+    if (digitalRead(SWITCH00) == HIGH) {
+        if (digitalRead(SWITCH0) == HIGH) {
+            solidBarLeft();
+        } else if (digitalRead(SWITCH1) == HIGH) {
+            solidBarRight();
+        } else {
+            solidBar();
+        }
+    } else if (digitalRead(SWITCH01) == HIGH) {
+        if (digitalRead(SWITCH0) == HIGH) {
+            solidBarLeft();
+        } else if (digitalRead(SWITCH1) == HIGH) {
+            solidBarRight();
+        } else {
+            prideBar();
+        }
     }
-    else {
-        solidBar();
-    }
-
 }
 
 
@@ -96,7 +104,7 @@ void prideBar() {
             pixels0.setPixelColor(i, pixels0.gamma32(pixels0.ColorHSV(pixelHue)));
         }
         pixels0.show();
-        delay(10);
+        delay(10); //this might have to change
     }
 }
 
