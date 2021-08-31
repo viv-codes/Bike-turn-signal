@@ -1,7 +1,8 @@
 /* Notes:
 - It would probably be best to keep the turn signals red and blinking solid to prevent confusion. 
 - However, the running light could be colorful or rainbow (let's try both)
-
+- A 3 pos switch will be used for directionality
+- A single pushbutton will be used to change running light modes, indicated by an individual RGB LED with different colors to correspond with the rear light
 */
 #include <Adafruit_NeoPixel.h>
 
@@ -85,4 +86,17 @@ void solidBarRight() {
     pixels1.clear();
     pixels1.show();
     delay(time0);
+}
+
+void prideBar() {
+    pixels0.clear();
+    pixels1.clear();
+    for(long firstPixelHue=0; firstPixelHue < 5 * 65536; firstPixelHue += 256) {
+        for(int i=0; i<NUMPIXELS; i++) {
+            int pixelHue = firstPixelHue + (i * 65536L / NUMPIXELS);
+            pixels0.setPixelColor(i, pixels0.gamma32(pixels0.ColorHSV(pixelHue)));
+        }
+        pixels0.show();
+        delay(10);
+    }
 }
