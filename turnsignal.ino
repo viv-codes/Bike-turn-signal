@@ -122,5 +122,3 @@ void transPrideBar() { //yea I know this is a lot of code, IDC.
     pixels0.show();
     pixels1.show();
 }
-
-3 3 4 3 3
