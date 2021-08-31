@@ -27,10 +27,11 @@ void loop() {
     while(SWITCH0=HIGH) do{
         solidBar(pixels0);
     }
+    
 
 }
 
-void solidBar(int side) { //Do I want to use int wait?? Figure out exactly what it does
+void solidBar(int side) {
     side.clear();
     for(int i=0; i<NUMPIXELS; i++) {
         side.setPixelColor(i, side.Color(255,0,0));
