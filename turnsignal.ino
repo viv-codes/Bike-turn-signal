@@ -24,7 +24,7 @@ void setup() {
 }
 
 void loop() {
-    solidBar(pixels0);
+    solidBar();
    /* while(SWITCH0=HIGH) do{
         solidBar(pixels0);
     } */
