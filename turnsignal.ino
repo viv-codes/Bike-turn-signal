@@ -22,7 +22,6 @@
 Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
 
-
 void setup() {
     pixels0.begin();             //initializes the pixels
     pixels1.begin();
@@ -104,22 +103,24 @@ void prideBar() {
 void transPrideBar() { //yea I know this is a lot of code, IDC. 
     pixels0.clear();
     pixels1.clear();
-    pixels0.setPixelColor(0, pixels0.Color()); 
-    pixels0.setPixelColor(1, pixels0.Color());
-    pixels0.setPixelColor(2, pixels0.Color());
-    pixels0.setPixelColor(3, pixels0.Color());
-    pixels0.setPixelColor(4, pixels0.Color());
-    pixels0.setPixelColor(5, pixels0.Color());
-    pixels0.setPixelColor(6, pixels0.Color());
-    pixels0.setPixelColor(7, pixels0.Color());
-    pixels1.setPixelColor(0, pixels1.Color());
-    pixels1.setPixelColor(1, pixels1.Color());
-    pixels1.setPixelColor(2, pixels1.Color());
-    pixels1.setPixelColor(3, pixels1.Color());
-    pixels1.setPixelColor(4, pixels1.Color());
-    pixels1.setPixelColor(5, pixels1.Color());
-    pixels1.setPixelColor(6, pixels1.Color());
-    pixels1.setPixelColor(7, pixels1.Color());
+    pixels0.setPixelColor(0, pixels0.Color(85,205,252)); 
+    pixels0.setPixelColor(1, pixels0.Color(85,205,252));
+    pixels0.setPixelColor(2, pixels0.Color(85,205,252));
+    pixels0.setPixelColor(3, pixels0.Color(247,168,184));
+    pixels0.setPixelColor(4, pixels0.Color(247,168,184));
+    pixels0.setPixelColor(5, pixels0.Color(247,168,184));
+    pixels0.setPixelColor(6, pixels0.Color(255,255,255));
+    pixels0.setPixelColor(7, pixels0.Color(255,255,255)); //I'm probably going to have to change the second strip pending hardware configuration
+    pixels1.setPixelColor(0, pixels1.Color(255,255,255));
+    pixels1.setPixelColor(1, pixels1.Color(255,255,255));
+    pixels1.setPixelColor(2, pixels1.Color(247,168,184));
+    pixels1.setPixelColor(3, pixels1.Color(247,168,184));
+    pixels1.setPixelColor(4, pixels1.Color(247,168,184));
+    pixels1.setPixelColor(5, pixels1.Color(85,205,252));
+    pixels1.setPixelColor(6, pixels1.Color(85,205,252));
+    pixels1.setPixelColor(7, pixels1.Color(85,205,252));
     pixels0.show();
     pixels1.show();
 }
+
+3 3 4 3 3
