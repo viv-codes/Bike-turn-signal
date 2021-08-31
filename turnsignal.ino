@@ -63,7 +63,7 @@ void loop() {
     }
 }
 
-// Functions !!!
+// Functions!!!
 
 // A basic, normal running light
 void solidBar() {
@@ -127,7 +127,7 @@ void prideBar() {
 }
 
 // Trans-pride themed running lights
-void transPrideBar() { //yea I know this is a lot of code, IDC. 
+void transPrideBar() { //yea I know this is a lot of code, but I did the math. for loops would take almost as much space 
     pixels0.clear();
     pixels1.clear();
     pixels0.setPixelColor(0, pixels0.Color(85,205,252)); 
