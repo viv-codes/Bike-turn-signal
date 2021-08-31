@@ -8,7 +8,7 @@
 #define BUTTON0 2 //this is for the mode-switcher, make sure this is ok
 
 // Timing
-#define time0 1000 //1 second is the default wait time
+#define time0 100 //1/10 second is the default blink time
 
 Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
