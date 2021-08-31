@@ -24,24 +24,37 @@ void setup() {
 }
 
 void loop() {
-    solidBar();
-   /* while(SWITCH0=HIGH) do{
-        solidBar(pixels0);
-    } */
-    
+   if (SWITCH0=HIGH) { //make sure that if/else is the proper structure for this. I think so
+        solidBarLeft();
+    } 
+    else if (SWITCH1=HIGH) {
+        solidBarRight();
+    }
 
 }
 
-/*void solidBar(int side) {*/ //this int is causing the compiler to refuse the code, so I'm gonna revert to how I was originally going to do this. It's gonna be a lil more inefficient, but IDK
-void solidBar() {
+//void solidBarLeft and solidBarRight could theoretically be done with a single section of code and args, but the adafruit lib is throwing compile errors and I didn't wanna mess with it
+
+void solidBarLeft() { 
     pixels0.clear();
     for(int i=0; i<NUMPIXELS; i++) {
         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
         pixels0.show();
     }
     delay(time0);
-    pixels0.clear();//is this redundant? Test. 
-    pixels0.show(); //is this redundant? Test. 
+    pixels0.clear();
+    pixels0.show();
     delay(time0);
 }
 
+void solidBarRight() {
+    pixels1.clear();
+    for(int i=0; i<NUMPIXELS; i++) {
+        pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+        pixels1.show();
+    }
+    delay(time0);
+    pixels1.clear();
+    pixels1.show();
+    delay(time0);
+}
