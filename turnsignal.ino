@@ -12,8 +12,8 @@
 #define SWITCH1 4 //RIGHT SIDE
 
 // Mode selection switch
-#define SWITCH00 //Normal operation
-#define SWITCH01 //Pride Mode
+#define SWITCH00 9  //Normal operation
+#define SWITCH01 10 //Pride Mode
 
 // Timing of turn signal
 #define time0 100 //1/10 second is the default blink time
@@ -23,6 +23,14 @@ Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
 
 void setup() {
+    pinMode(PIN0, OUTPUT);
+    pinMode(PIN1, OUTPUT);
+    pinMode(LED0, OUTPUT);
+    pinMode(LED1, OUTPUT);
+    pinMode(SWITCH00, INPUT);
+    pinMode(SWITCH01, INPUT);
+    pinMode(SWITCH0, INPUT);
+    pinMode(SWITCH1, INPUT);
     pixels0.begin();    //initializes the pixels
     pixels1.begin();
     pixels0.show();  
