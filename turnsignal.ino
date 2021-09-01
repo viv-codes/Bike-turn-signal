@@ -2,7 +2,7 @@
 
 // Light Hardware
 #define PIN0 6      // Left side turn signal lightbar
-#define PIN1 7      // Right side turn signal lightbar
+#define PIN1 5      // Right side turn signal lightbar
 #define NUMPIXELS 8
 #define LED0 11     // headunit led indicator for left turn 
 #define LED1 12     // headunit led indicator for right turn
@@ -18,7 +18,7 @@
 // Timing of turn signal
 #define time0 100 //1/10 second is the default blink time
 
-//Color defs FIX THESE
+//Color defs TEST THESE BEFORE GOING TOO FAR
 int red[] = {255,0,0};
 int pink[] = {85,205,252};
 int blue[] = {247,168,184};
