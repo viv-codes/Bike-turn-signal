@@ -157,3 +157,20 @@ void transPrideBar() { //yea I know this is a lot of code, but I did the math. f
     pixels0.show();
     pixels1.show();
 }
+
+/*
+void transPrideBar1(char pixelset) { //I need to fix this call, pixelset is broken at the moment
+    for(int i=0; i<2; i++) {
+        pixelset.clear();
+        for(int i=0; i<3; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(85,205,252));
+        }
+        for(int i=3; i<6; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(247,168,184));
+        }
+        for(int i=6; i<8; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(255,255,255));
+        }
+        pixelset.show();
+    }
+} */
