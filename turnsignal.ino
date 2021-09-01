@@ -66,7 +66,8 @@ void loop() {
         } else if (digitalRead(SWITCH1) == HIGH) {
             solidBarRight();
         } else {
-            transPrideBar();
+            transPrideBar(pixels0);
+            transPrideBar(pixels1);
         }
     }
 }
@@ -135,6 +136,25 @@ void prideBar() {
 }
 
 // Trans-pride themed running lights
+
+void transPrideBar(Adafruit_NeoPixel pixelset) {  //does this work? I don't know. But it verifies. 
+    for(int i=0; i<2; i++) {
+        pixelset.clear();
+        for(int i=0; i<3; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(85,205,252));
+        }
+        for(int i=3; i<6; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(247,168,184));
+        }
+        for(int i=6; i<8; i++) {
+            pixelset.setPixelColor(i, pixelset.Color(255,255,255));
+        }
+        pixelset.show();
+    }
+}
+
+
+/*  I'mma just keep this here until I'm sure the for loop version works
 void transPrideBar() { //yea I know this is a lot of code, but I did the math. for loops would take almost as much space 
     pixels0.clear();
     pixels1.clear();
@@ -156,21 +176,4 @@ void transPrideBar() { //yea I know this is a lot of code, but I did the math. f
     pixels1.setPixelColor(7, pixels1.Color(85,205,252));
     pixels0.show();
     pixels1.show();
-}
-
-/*
-void transPrideBar1(Adafruit_NeoPixel pixelset) {  //does this work? I don't know. 
-    for(int i=0; i<2; i++) {
-        pixelset.clear();
-        for(int i=0; i<3; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(85,205,252));
-        }
-        for(int i=3; i<6; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(247,168,184));
-        }
-        for(int i=6; i<8; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(255,255,255));
-        }
-        pixelset.show();
-    }
 } */
