@@ -19,10 +19,10 @@
 #define time0 100 //1/10 second is the default blink time
 
 //Color defs FIX THESE
-/* red[] = {255,0,0}
-pink[] = {85,205,252}
-blue[] = {247,168,184}
-white[] = {255,255,255} */
+int red[] = {255,0,0};
+int pink[] = {85,205,252};
+int blue[] = {247,168,184};
+int white[] = {255,255,255};
 
 // Telling the NeoPixels how to do their thing
 Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
