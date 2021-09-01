@@ -23,7 +23,7 @@ Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
 
 void setup() {
-    pinMode(PIN0, OUTPUT);
+    pinMode(PIN0, OUTPUT); // Makes sure that the pins are properly defined
     pinMode(PIN1, OUTPUT);
     pinMode(LED0, OUTPUT);
     pinMode(LED1, OUTPUT);
