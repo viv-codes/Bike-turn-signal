@@ -159,7 +159,7 @@ void transPrideBar() { //yea I know this is a lot of code, but I did the math. f
 }
 
 /*
-void transPrideBar1(char pixelset) { //I need to fix this call, pixelset is broken at the moment
+void transPrideBar1(Adafruit_NeoPixel pixelset) {  //does this work? I don't know. 
     for(int i=0; i<2; i++) {
         pixelset.clear();
         for(int i=0; i<3; i++) {
