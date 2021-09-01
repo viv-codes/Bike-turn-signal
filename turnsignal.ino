@@ -18,6 +18,12 @@
 // Timing of turn signal
 #define time0 100 //1/10 second is the default blink time
 
+//Color defs FIX THESE
+/* red[] = {255,0,0}
+pink[] = {85,205,252}
+blue[] = {247,168,184}
+white[] = {255,255,255} /*
+
 // Telling the NeoPixels how to do their thing
 Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
