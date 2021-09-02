@@ -134,8 +134,10 @@ void prideBar() {
         for(int i=0; i<NUMPIXELS; i++) {
             int pixelHue = firstPixelHue + (i * 65536L / NUMPIXELS);
             pixels0.setPixelColor(i, pixels0.gamma32(pixels0.ColorHSV(pixelHue)));
+            pixels1.setPixelColor(i, pixels1.gamma32(pixels1.ColorHSV(pixelHue)));
         }
         pixels0.show();
+        pixels1.show();
         delay(10); //this might have to change
     }
 }
