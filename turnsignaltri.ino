@@ -150,12 +150,17 @@ void solidBarRight() {
 void prideBar() {
     pixels0.clear();
     pixels1.clear();
+    pixels2.clear();
     for(long firstPixelHue=0; firstPixelHue < 5 * 65536; firstPixelHue += 256) {
         for(int i=0; i<NUMPIXELS; i++) {
             int pixelHue = firstPixelHue + (i * 65536L / NUMPIXELS);
             pixels0.setPixelColor(i, pixels0.gamma32(pixels0.ColorHSV(pixelHue)));
+            pixels1.setPixelColor(i, pixels1.gamma32(pixels1.ColorHSV(pixelHue)));
+            pixels2.setPixelColor(i, pixels2.gamma32(pixels2.ColorHSV(pixelHue)));
         }
         pixels0.show();
+        pixels1.show();
+        pixels2.show();
         delay(10); //this might have to change
     }
 }
