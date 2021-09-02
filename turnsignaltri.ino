@@ -89,6 +89,7 @@ void loop() {
 // Functions!!!
 
 // A basic, normal running light
+
 void solidBar() {
     pixels0.clear();
     pixels1.clear();
@@ -164,6 +165,30 @@ void prideBar() {
         delay(10); //this might have to change
     }
 }
+
+void all_lights_clear() { //actually like, implement these
+    pixels0.clear();
+    pixels1.clear();
+    pixels2.clear();
+}
+
+void all_lights_show() {
+    pixels0.show();
+    pixels1.show();
+    pixels2.show();
+}
+
+void left_turn_show() {
+    pixels0.show();
+    pixels2.show();
+}
+
+void right_turn_show() {
+    pixels1.show();
+    pixels2.show();
+}
+
+
 
 /*
 // Trans-pride themed running lights
