@@ -28,10 +28,13 @@ int white[] = {255,255,255};
 // Telling the NeoPixels how to do their thing
 Adafruit_NeoPixel pixels0(NUMPIXELS, PIN0, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels2(NUMPIXELS, PIN2,  NEO_GRB + NEO_KHZ800);
+
 
 void setup() {
     pinMode(PIN0, OUTPUT); // Makes sure that the pins are properly defined
     pinMode(PIN1, OUTPUT);
+    pinMode(PIN2, OUTPUT);
     pinMode(LED0, OUTPUT);
     pinMode(LED1, OUTPUT);
     pinMode(SWITCH00, INPUT);
@@ -40,10 +43,13 @@ void setup() {
     pinMode(SWITCH1, INPUT);
     pixels0.begin();    //initializes the pixels
     pixels1.begin();
+    pixels2.begin();
     pixels0.show();  
-    pixels1.show();     //turns brightness off
+    pixels1.show();    
+    pixels2.show(); //turns brightness off
     pixels0.setBrightness(200); //sets the brightness (max 255)
     pixels1.setBrightness(200);
+    pixels2.setBrightness(200);
 }
 
 // Primary body of code
@@ -75,6 +81,7 @@ void loop() {
         } else {
             transPrideBar(pixels0);
             transPrideBar(pixels1);
+            transPrideBar(pixels2);
         }
     }
 }
@@ -92,6 +99,10 @@ void solidBar() {
     for(int i=0; i<NUMPIXELS; i++) {
       pixels1.setPixelColor(i, pixels1.Color(255,0,0));
       pixels1.show();
+    }
+    for(int i=0; i<NUMPIXELS; i++) {
+        pixels2.setPixelColor(i, pixels2.Color(255,0,0));
+        pixels2.show();
     }
     delay(time0);
 }
@@ -142,6 +153,7 @@ void prideBar() {
     }
 }
 
+/*
 // Trans-pride themed running lights
 
 void transPrideBar(Adafruit_NeoPixel pixelset) {  //does this work? I don't know. But it verifies. 
@@ -158,29 +170,4 @@ void transPrideBar(Adafruit_NeoPixel pixelset) {  //does this work? I don't know
         }
         pixelset.show();
     }
-}
-
-
-/*  I'mma just keep this here until I'm sure the for loop version works
-void transPrideBar() { //yea I know this is a lot of code, but I did the math. for loops would take almost as much space 
-    pixels0.clear();
-    pixels1.clear();
-    pixels0.setPixelColor(0, pixels0.Color(85,205,252)); 
-    pixels0.setPixelColor(1, pixels0.Color(85,205,252));
-    pixels0.setPixelColor(2, pixels0.Color(85,205,252));
-    pixels0.setPixelColor(3, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(4, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(5, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(6, pixels0.Color(255,255,255));
-    pixels0.setPixelColor(7, pixels0.Color(255,255,255)); //I'm probably going to have to change the second strip pending hardware configuration
-    pixels1.setPixelColor(0, pixels1.Color(255,255,255));
-    pixels1.setPixelColor(1, pixels1.Color(255,255,255));
-    pixels1.setPixelColor(2, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(3, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(4, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(5, pixels1.Color(85,205,252));
-    pixels1.setPixelColor(6, pixels1.Color(85,205,252));
-    pixels1.setPixelColor(7, pixels1.Color(85,205,252));
-    pixels0.show();
-    pixels1.show();
 } */
