@@ -31,7 +31,7 @@ Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1,  NEO_GRB + NEO_KHZ800);
 
 void setup() {
     pinMode(PIN0, OUTPUT); // Makes sure that the pins are properly defined
-    pinMode(PIN1, OUTPUT);
+    pinMode(PIN1, OUTPUT);  //I should probably see what I can do to consolidate this part.
     pinMode(LED0, OUTPUT);
     pinMode(LED1, OUTPUT);
     pinMode(SWITCH00, INPUT);
@@ -87,10 +87,8 @@ void solidBar() {
     pixels1.clear();
     for(int i=0; i<NUMPIXELS; i++) {
       pixels0.setPixelColor(i, pixels0.Color(255,0,0));
-      pixels0.show();
-    }
-    for(int i=0; i<NUMPIXELS; i++) {
       pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+      pixels0.show();
       pixels1.show();
     }
     delay(time0);
