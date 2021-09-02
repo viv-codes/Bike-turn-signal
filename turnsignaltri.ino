@@ -1,9 +1,9 @@
 #include <Adafruit_NeoPixel.h>
 
 // Light Hardware
-#define PIN0 6      // Left side turn signal lightbar
-#define PIN1 5      // Right side turn signal lightbar
-#define PIN2 7      // Middle turn signal lightbar
+#define PIN0 6      // Bottom left side turn signal lightbar
+#define PIN1 5      // Bottom right side turn signal lightbar
+#define PIN2 7      // Top middle turn signal lightbar
 #define NUMPIXELS 8
 #define LED0 11     // headunit led indicator for left turn 
 #define LED1 12     // headunit led indicator for right turn
@@ -92,17 +92,14 @@ void loop() {
 void solidBar() {
     pixels0.clear();
     pixels1.clear();
+    pixels2.clear();
     for(int i=0; i<NUMPIXELS; i++) {
       pixels0.setPixelColor(i, pixels0.Color(255,0,0));
-      pixels0.show();
-    }
-    for(int i=0; i<NUMPIXELS; i++) {
       pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+      pixels2.setPixelColor(i, pixels2.Color(255,0,0));
+      pixels0.show();
       pixels1.show();
-    }
-    for(int i=0; i<NUMPIXELS; i++) {
-        pixels2.setPixelColor(i, pixels2.Color(255,0,0));
-        pixels2.show();
+      pixels2.show();
     }
     delay(time0);
 }
@@ -112,6 +109,7 @@ void solidBar() {
 // Left turn signal
 void solidBarLeft() { 
     pixels0.clear(); //clears the pixels
+    pixels2.clear();
     for(int i=0; i<NUMPIXELS; i++) { //sets the pixels, one at a time, to red
         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
         pixels0.show(); // Displays the pixels
