@@ -79,9 +79,9 @@ void loop() {
         } else if (digitalRead(SWITCH1) == HIGH) {
             solidBarRight();
         } else {
-            transPrideBar(pixels0);
+           /* transPrideBar(pixels0);
             transPrideBar(pixels1);
-            transPrideBar(pixels2);
+            transPrideBar(pixels2); */
         }
     }
 }
@@ -112,12 +112,16 @@ void solidBarLeft() {
     pixels2.clear();
     for(int i=0; i<NUMPIXELS; i++) { //sets the pixels, one at a time, to red
         pixels0.setPixelColor(i, pixels0.Color(255,0,0));
+        pixels2.setPixelColor(i, pixels2.Color(255,0,0));
         pixels0.show(); // Displays the pixels
+        pixels2.show();
     }
     digitalWrite(LED0, HIGH); // Activates the indicator LED
     delay(time0);    //waits 0.1 sec
     pixels0.clear(); //clears the pixels
+    pixels2.clear();
     pixels0.show();  //displays that the pixels are cleared
+    pixels2.show();
     digitalWrite(LED0, LOW);
     delay(time0);    //waits 0.1 sec
 }
@@ -125,14 +129,19 @@ void solidBarLeft() {
 // Right turn signal
 void solidBarRight() {
     pixels1.clear();
+    pixels2.clear();
     for(int i=0; i<NUMPIXELS; i++) {
         pixels1.setPixelColor(i, pixels1.Color(255,0,0));
+        pixels2.setPixelColor(i, pixels2.Color(255,0,0));
         pixels1.show();
+        pixels2.show();
     }
     digitalWrite(LED1, HIGH);
     delay(time0);
     pixels1.clear();
+    pixels2.clear();
     pixels1.show();
+    pixels2.show();
     digitalWrite(LED1, HIGH);
     delay(time0);
 }
