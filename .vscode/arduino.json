@@ -1,4 +1,5 @@
 {
     "board": "arduino:avr:uno",
-    "sketch": "turnsignal.ino"
+    "sketch": "turnsignal.ino",
+    "port": "COM6"
 }

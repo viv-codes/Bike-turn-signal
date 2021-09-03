@@ -166,7 +166,7 @@ void prideBar() {
     }
 }
 
-void all_lights_clear() { //actually like, implement these
+void all_lights_clear() { //actually like, implement these (BUT TEST FIRST)
     pixels0.clear();
     pixels1.clear();
     pixels2.clear();

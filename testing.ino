@@ -8,14 +8,6 @@
 #define LED0 11     // headunit led indicator for left turn 
 #define LED1 12     // headunit led indicator for right turn
 
-// Turn signal direction switch
-#define SWITCH0 3 //LEFT SIDE
-#define SWITCH1 4 //RIGHT SIDE
-
-// Mode selection switch
-#define SWITCH00 9  //Normal operation
-#define SWITCH01 10 //Pride Mode
-
 // Timing of turn signal
 #define time0 100 //1/10 second is the default blink time
 
@@ -34,10 +26,6 @@ void setup() {
     pinMode(PIN1, OUTPUT);  //I should probably see what I can do to consolidate this part.
     pinMode(LED0, OUTPUT);
     pinMode(LED1, OUTPUT);
-    pinMode(SWITCH00, INPUT);
-    pinMode(SWITCH01, INPUT);
-    pinMode(SWITCH0, INPUT);
-    pinMode(SWITCH1, INPUT);
     pixels0.begin();    //initializes the pixels
     pixels1.begin();
     pixels0.show();  
@@ -46,8 +34,12 @@ void setup() {
     pixels1.setBrightness(200);
 }
 
-// Primary body of code
 void loop() {
+    transPrideBar();
+}
+
+// Primary body of code
+/*void loop() {
     if (digitalRead(SWITCH00) == HIGH) {    // This outer if sequence is what runs the mode switcher
     // Normal mode
         if (digitalRead(SWITCH0) == HIGH) { // Turn signals themselves are consistent between modes for safety and universal recognizability. 
@@ -77,7 +69,7 @@ void loop() {
             transPrideBar(pixels1);
         }
     }
-}
+} */
 
 // Functions!!!
 
@@ -127,6 +119,7 @@ void solidBarRight() {
 }
 
 // Pride-themed running lights
+/*
 void prideBar() {
     pixels0.clear();
     pixels1.clear();
@@ -140,47 +133,24 @@ void prideBar() {
         pixels1.show();
         delay(10); //this might have to change
     }
-}
+} */
 
 // Trans-pride themed running lights
 
-void transPrideBar(Adafruit_NeoPixel pixelset) {  //does this work? I don't know. But it verifies. 
+void transPrideBar() {  //does this work? I don't know. But it verifies. 
     for(int i=0; i<2; i++) {
-        pixelset.clear();
+        pixels0.clear();
         for(int i=0; i<3; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(85,205,252));
+            pixels0.setPixelColor(i, pixels0.Color(85,205,252));
         }
         for(int i=3; i<6; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(247,168,184));
+            pixels0.setPixelColor(i, pixels0.Color(247,168,184));
         }
         for(int i=6; i<8; i++) {
-            pixelset.setPixelColor(i, pixelset.Color(255,255,255));
+            pixels0.setPixelColor(i, pixels0.Color(255,255,255));
         }
-        pixelset.show();
+        pixels0.show();
     }
 }
 
 
-/*  I'mma just keep this here until I'm sure the for loop version works
-void transPrideBar() { //yea I know this is a lot of code, but I did the math. for loops would take almost as much space 
-    pixels0.clear();
-    pixels1.clear();
-    pixels0.setPixelColor(0, pixels0.Color(85,205,252)); 
-    pixels0.setPixelColor(1, pixels0.Color(85,205,252));
-    pixels0.setPixelColor(2, pixels0.Color(85,205,252));
-    pixels0.setPixelColor(3, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(4, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(5, pixels0.Color(247,168,184));
-    pixels0.setPixelColor(6, pixels0.Color(255,255,255));
-    pixels0.setPixelColor(7, pixels0.Color(255,255,255)); //I'm probably going to have to change the second strip pending hardware configuration
-    pixels1.setPixelColor(0, pixels1.Color(255,255,255));
-    pixels1.setPixelColor(1, pixels1.Color(255,255,255));
-    pixels1.setPixelColor(2, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(3, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(4, pixels1.Color(247,168,184));
-    pixels1.setPixelColor(5, pixels1.Color(85,205,252));
-    pixels1.setPixelColor(6, pixels1.Color(85,205,252));
-    pixels1.setPixelColor(7, pixels1.Color(85,205,252));
-    pixels0.show();
-    pixels1.show();
-} */
